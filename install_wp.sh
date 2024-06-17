@@ -249,7 +249,7 @@ displayTitleBanner() {
 	# MojoHost Title Banner
 	echo ''
 	echo '============================================================='
-	echo "  MojoHost WordPress Installer Script (Revision $REVISION)"
+	echo "  WordPress Installer Script (Revision $REVISION)"
 	echo '============================================================='
 	echo ''
 }
@@ -1431,23 +1431,7 @@ Require user ${SECUSER}" >> wp-admin/.htaccess
 	############################################
 fi
 	
-##########################################################
-## wp-content/uploads .htaccess for non php/html open
-## Added by Laws - 7/20/2011
 
-echo -n "Installing no-php-or-html .htaccess ....... "
-
-if [ -f "wp-content/uploads/.htaccess" ]; then
-	echo -e "${RED}Failed! Please add the no-php-orhtml .htaccess manually to wp-content/uploads/.htaccess!${ENDCOLOR}"	
-else
-	# wget -O wp-content/uploads/.htaccess http://fs01/files/no-php-or-html.htaccess
-	WGETRESULT="`wget -O wp-content/uploads/.htaccess http://fs01/files/no-php-or-html.htaccess 2>&1|grep -c " saved "`"
-	if [ "${WGETRESULT}" -eq "1" ]; then
-		echo -e "${GREEN}Done${ENDCOLOR}"
-	else
-		echo -e "${RED}Failed! Unable to retrieve .htaccess from fs01.${ENDCOLOR}"
-	fi
-fi
 
 ## wp-content/uploads .htaccess for non php/html close
 ###########################################################
